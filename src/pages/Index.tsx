@@ -2,6 +2,8 @@ import { Header } from "@/components/layout/Header";
 import { Dashboard } from "@/components/dashboard/Dashboard";
 import { CasalCard } from "@/components/casais/CasalCard";
 import { EquipeCard } from "@/components/equipes/EquipeCard";
+import { AniversariantesSection } from "@/components/aniversariantes/AniversariantesSection";
+import { OrganogramaEquipes } from "@/components/organograma/OrganogramaEquipes";
 import { mockCasais, mockEquipes } from "@/data/mockData";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import heroImage from "@/assets/ecc-hero-banner.jpg";
@@ -42,6 +44,16 @@ const Index = () => {
         </div>
         
         <Dashboard />
+        
+        {/* Seção de Aniversariantes */}
+        <section className="mt-8">
+          <AniversariantesSection />
+        </section>
+        
+        {/* Organograma das Equipes */}
+        <section className="mt-8">
+          <OrganogramaEquipes />
+        </section>
         
         {/* Seção de Casais Recentes */}
         <section className="mt-12">

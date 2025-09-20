@@ -14,7 +14,225 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      casais: {
+        Row: {
+          atualizado_em: string
+          bairro: string | null
+          comunidade: string | null
+          contato_ela: string | null
+          contato_ele: string | null
+          criado_em: string
+          data_ecc: string | null
+          data_nascimento_ela: string | null
+          data_nascimento_ele: string | null
+          ecc_primeira_etapa: string | null
+          endereco: string | null
+          foto_url: string | null
+          id: string
+          local_ecc: string | null
+          nome_ela: string
+          nome_ele: string
+          numero_inscricao: number
+          paroquia: string
+          religiao_ela: string | null
+          religiao_ele: string | null
+        }
+        Insert: {
+          atualizado_em?: string
+          bairro?: string | null
+          comunidade?: string | null
+          contato_ela?: string | null
+          contato_ele?: string | null
+          criado_em?: string
+          data_ecc?: string | null
+          data_nascimento_ela?: string | null
+          data_nascimento_ele?: string | null
+          ecc_primeira_etapa?: string | null
+          endereco?: string | null
+          foto_url?: string | null
+          id?: string
+          local_ecc?: string | null
+          nome_ela: string
+          nome_ele: string
+          numero_inscricao: number
+          paroquia: string
+          religiao_ela?: string | null
+          religiao_ele?: string | null
+        }
+        Update: {
+          atualizado_em?: string
+          bairro?: string | null
+          comunidade?: string | null
+          contato_ela?: string | null
+          contato_ele?: string | null
+          criado_em?: string
+          data_ecc?: string | null
+          data_nascimento_ela?: string | null
+          data_nascimento_ele?: string | null
+          ecc_primeira_etapa?: string | null
+          endereco?: string | null
+          foto_url?: string | null
+          id?: string
+          local_ecc?: string | null
+          nome_ela?: string
+          nome_ele?: string
+          numero_inscricao?: number
+          paroquia?: string
+          religiao_ela?: string | null
+          religiao_ele?: string | null
+        }
+        Relationships: []
+      }
+      encontros: {
+        Row: {
+          atualizado_em: string
+          casais_inscritos: number | null
+          criado_em: string
+          data_fim: string | null
+          data_inicio: string
+          etapa: string | null
+          id: string
+          local: string
+          nome: string
+          status: string | null
+        }
+        Insert: {
+          atualizado_em?: string
+          casais_inscritos?: number | null
+          criado_em?: string
+          data_fim?: string | null
+          data_inicio: string
+          etapa?: string | null
+          id?: string
+          local: string
+          nome: string
+          status?: string | null
+        }
+        Update: {
+          atualizado_em?: string
+          casais_inscritos?: number | null
+          criado_em?: string
+          data_fim?: string | null
+          data_inicio?: string
+          etapa?: string | null
+          id?: string
+          local?: string
+          nome?: string
+          status?: string | null
+        }
+        Relationships: []
+      }
+      equipe_membros: {
+        Row: {
+          casal_id: string
+          criado_em: string
+          equipe_id: string
+          id: string
+          posicao: string | null
+        }
+        Insert: {
+          casal_id: string
+          criado_em?: string
+          equipe_id: string
+          id?: string
+          posicao?: string | null
+        }
+        Update: {
+          casal_id?: string
+          criado_em?: string
+          equipe_id?: string
+          id?: string
+          posicao?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "equipe_membros_casal_id_fkey"
+            columns: ["casal_id"]
+            isOneToOne: false
+            referencedRelation: "casais"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "equipe_membros_equipe_id_fkey"
+            columns: ["equipe_id"]
+            isOneToOne: false
+            referencedRelation: "equipes"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      equipes: {
+        Row: {
+          ativa: boolean
+          atualizado_em: string
+          coordenador_casal_id: string | null
+          criado_em: string
+          descricao: string | null
+          id: string
+          nome: string
+          tipo_equipe_id: string
+        }
+        Insert: {
+          ativa?: boolean
+          atualizado_em?: string
+          coordenador_casal_id?: string | null
+          criado_em?: string
+          descricao?: string | null
+          id?: string
+          nome: string
+          tipo_equipe_id: string
+        }
+        Update: {
+          ativa?: boolean
+          atualizado_em?: string
+          coordenador_casal_id?: string | null
+          criado_em?: string
+          descricao?: string | null
+          id?: string
+          nome?: string
+          tipo_equipe_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "equipes_coordenador_casal_id_fkey"
+            columns: ["coordenador_casal_id"]
+            isOneToOne: false
+            referencedRelation: "casais"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "equipes_tipo_equipe_id_fkey"
+            columns: ["tipo_equipe_id"]
+            isOneToOne: false
+            referencedRelation: "tipos_equipes"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      tipos_equipes: {
+        Row: {
+          cor: string
+          descricao: string
+          id: string
+          nome: string
+          ordem: number
+        }
+        Insert: {
+          cor: string
+          descricao: string
+          id: string
+          nome: string
+          ordem?: number
+        }
+        Update: {
+          cor?: string
+          descricao?: string
+          id?: string
+          nome?: string
+          ordem?: number
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
