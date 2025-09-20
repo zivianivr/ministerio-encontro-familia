@@ -22,6 +22,7 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          glow: "hsl(var(--primary-glow))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -47,6 +48,14 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        gold: {
+          DEFAULT: "hsl(var(--gold))",
+          foreground: "hsl(var(--gold-foreground))",
+        },
+        sacred: {
+          DEFAULT: "hsl(var(--sacred))",
+          foreground: "hsl(var(--sacred-foreground))",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -62,6 +71,24 @@ export default {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      backgroundImage: {
+        'gradient-celestial': 'var(--gradient-celestial)',
+        'gradient-divine': 'var(--gradient-divine)',
+        'gradient-sacred': 'var(--gradient-sacred)',
+        'gradient-gold': 'var(--gradient-gold)',
+      },
+      boxShadow: {
+        'divine': 'var(--shadow-divine)',
+        'sacred': 'var(--shadow-sacred)',
+        'gentle': 'var(--shadow-gentle)',
+      },
+      transitionTimingFunction: {
+        'divine': 'var(--transition-divine)',
+      },
+      fontFamily: {
+        'sans': ['Inter', 'ui-sans-serif', 'system-ui'],
+        'serif': ['Crimson Text', 'ui-serif', 'Georgia'],
       },
       keyframes: {
         "accordion-down": {
