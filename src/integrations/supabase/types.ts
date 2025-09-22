@@ -209,6 +209,50 @@ export type Database = {
           },
         ]
       }
+      importacoes: {
+        Row: {
+          criado_em: string
+          erros: Json | null
+          id: string
+          nome_arquivo: string
+          registros_processados: number | null
+          status: string | null
+          tipo: string
+          total_registros: number | null
+          usuario_id: string | null
+        }
+        Insert: {
+          criado_em?: string
+          erros?: Json | null
+          id?: string
+          nome_arquivo: string
+          registros_processados?: number | null
+          status?: string | null
+          tipo: string
+          total_registros?: number | null
+          usuario_id?: string | null
+        }
+        Update: {
+          criado_em?: string
+          erros?: Json | null
+          id?: string
+          nome_arquivo?: string
+          registros_processados?: number | null
+          status?: string | null
+          tipo?: string
+          total_registros?: number | null
+          usuario_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "importacoes_usuario_id_fkey"
+            columns: ["usuario_id"]
+            isOneToOne: false
+            referencedRelation: "usuarios"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       tipos_equipes: {
         Row: {
           cor: string
@@ -230,6 +274,39 @@ export type Database = {
           id?: string
           nome?: string
           ordem?: number
+        }
+        Relationships: []
+      }
+      usuarios: {
+        Row: {
+          ativo: boolean
+          atualizado_em: string
+          auth_user_id: string | null
+          criado_em: string
+          email: string
+          id: string
+          nome: string
+          role: string | null
+        }
+        Insert: {
+          ativo?: boolean
+          atualizado_em?: string
+          auth_user_id?: string | null
+          criado_em?: string
+          email: string
+          id?: string
+          nome: string
+          role?: string | null
+        }
+        Update: {
+          ativo?: boolean
+          atualizado_em?: string
+          auth_user_id?: string | null
+          criado_em?: string
+          email?: string
+          id?: string
+          nome?: string
+          role?: string | null
         }
         Relationships: []
       }
