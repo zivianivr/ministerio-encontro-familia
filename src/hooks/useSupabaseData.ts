@@ -61,19 +61,42 @@ export const useSupabaseData = () => {
       if (error) throw error;
 
       // Transformar dados do Supabase para o formato da aplicação
-      const equipesFormatted: Equipe[] = data?.map(equipe => ({
-        id: equipe.id,
-        nome: equipe.nome,
-        coordenador: {
-          casal: equipe.coordenador,
-          numeroInscricao: equipe.coordenador?.numero_inscricao || 0
-        },
-        casais: equipe.equipe_membros?.map(membro => ({
-          casal: membro.casal,
-          numeroInscricao: membro.casal?.numero_inscricao || 0
-        })) || [],
-        descricao: equipe.descricao
-      })) || [];
+      const equipesFormatted: Equipe[] = data?.map(equipe => {
+        const formatCasal = (casalData: any) => casalData ? ({
+          id: casalData.id,
+          numeroInscricao: casalData.numero_inscricao,
+          nomeEle: casalData.nome_ele,
+          religiaoEle: casalData.religiao_ele || '',
+          contatoEle: casalData.contato_ele || '',
+          nomeEla: casalData.nome_ela,
+          religiaoEla: casalData.religiao_ela || '',
+          contatoEla: casalData.contato_ela || '',
+          paroquia: casalData.paroquia,
+          comunidade: casalData.comunidade || '',
+          bairro: casalData.bairro || '',
+          endereco: casalData.endereco || '',
+          eccPrimeiraEtapa: casalData.ecc_primeira_etapa || '',
+          dataEcc: casalData.data_ecc || '',
+          localEcc: casalData.local_ecc || '',
+          fotoUrl: casalData.foto_url,
+          criadoEm: new Date(casalData.criado_em),
+          atualizadoEm: new Date(casalData.atualizado_em)
+        }) : null;
+
+        return {
+          id: equipe.id,
+          nome: equipe.nome,
+          coordenador: {
+            casal: formatCasal(equipe.coordenador)!,
+            numeroInscricao: equipe.coordenador?.numero_inscricao || 0
+          },
+          casais: equipe.equipe_membros?.map((membro: any) => ({
+            casal: formatCasal(membro.casal)!,
+            numeroInscricao: membro.casal?.numero_inscricao || 0
+          })) || [],
+          descricao: equipe.descricao
+        };
+      }) || [];
       
       setEquipes(equipesFormatted);
     } catch (err) {
