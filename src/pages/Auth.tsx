@@ -25,12 +25,20 @@ const Auth = () => {
 
   const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (!nome || !email || !password) {
+      toast.error('Preencha todos os campos');
+      return;
+    }
+    
     setLoading(true);
 
     try {
+      console.log('Tentando cadastrar usuário:', { email, nome });
       const { error } = await signUp(email, password, nome);
       
       if (error) {
+        console.error('Erro no cadastro:', error);
         if (error.message.includes('already registered')) {
           toast.error('Este e-mail já está cadastrado. Tente fazer login.');
         } else {
@@ -38,8 +46,13 @@ const Auth = () => {
         }
       } else {
         toast.success('Cadastro realizado! Verifique seu e-mail para confirmar a conta.');
+        // Limpar campos após sucesso
+        setEmail('');
+        setPassword('');
+        setNome('');
       }
     } catch (err) {
+      console.error('Erro inesperado ao cadastrar:', err);
       toast.error('Erro inesperado ao cadastrar');
     } finally {
       setLoading(false);
@@ -48,22 +61,32 @@ const Auth = () => {
 
   const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (!email || !password) {
+      toast.error('Preencha e-mail e senha');
+      return;
+    }
+    
     setLoading(true);
 
     try {
+      console.log('Tentando fazer login:', { email });
       const { error } = await signIn(email, password);
       
       if (error) {
+        console.error('Erro no login:', error);
         if (error.message.includes('Invalid login credentials')) {
           toast.error('E-mail ou senha incorretos');
         } else {
           toast.error(`Erro no login: ${error.message}`);
         }
       } else {
+        console.log('Login realizado com sucesso');
         toast.success('Login realizado com sucesso!');
-        navigate('/');
+        // A navegação será feita automaticamente pelo useEffect quando user mudar
       }
     } catch (err) {
+      console.error('Erro inesperado ao fazer login:', err);
       toast.error('Erro inesperado ao fazer login');
     } finally {
       setLoading(false);

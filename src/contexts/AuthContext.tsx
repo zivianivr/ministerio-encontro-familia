@@ -39,27 +39,43 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, []);
 
   const signUp = async (email: string, password: string, nome: string) => {
-    const redirectUrl = `${window.location.origin}/`;
-    
-    const { error } = await supabase.auth.signUp({
-      email,
-      password,
-      options: {
-        emailRedirectTo: redirectUrl,
-        data: {
-          full_name: nome
+    try {
+      const redirectUrl = `${window.location.origin}/`;
+      
+      console.log('Iniciando cadastro no Supabase:', { email, nome });
+      const { data, error } = await supabase.auth.signUp({
+        email,
+        password,
+        options: {
+          emailRedirectTo: redirectUrl,
+          data: {
+            full_name: nome
+          }
         }
-      }
-    });
-    return { error };
+      });
+      
+      console.log('Resultado do cadastro:', { data, error });
+      return { error };
+    } catch (err) {
+      console.error('Erro interno no signUp:', err);
+      return { error: err };
+    }
   };
 
   const signIn = async (email: string, password: string) => {
-    const { error } = await supabase.auth.signInWithPassword({
-      email,
-      password
-    });
-    return { error };
+    try {
+      console.log('Iniciando login no Supabase:', { email });
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email,
+        password
+      });
+      
+      console.log('Resultado do login:', { data, error });
+      return { error };
+    } catch (err) {
+      console.error('Erro interno no signIn:', err);
+      return { error: err };
+    }
   };
 
   const signOut = async () => {
