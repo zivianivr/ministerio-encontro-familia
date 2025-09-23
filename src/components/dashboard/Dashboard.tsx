@@ -77,7 +77,11 @@ export const Dashboard = () => {
                   <span className="text-sm text-muted-foreground">
                     {mockStats.proximoEcc.casaisInscritos} casais inscritos
                   </span>
-                  <Button size="sm" className="bg-gradient-celestial">
+                  <Button 
+                    size="sm" 
+                    className="bg-gradient-celestial"
+                    onClick={() => console.log('Ver detalhes do próximo encontro')}
+                  >
                     Ver Detalhes
                   </Button>
                 </div>
@@ -109,7 +113,12 @@ export const Dashboard = () => {
                   </Badge>
                 </div>
               ))}
-              <Button variant="ghost" size="sm" className="w-full mt-2">
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                className="w-full mt-2"
+                onClick={() => console.log('Ver todas as equipes')}
+              >
                 Ver Todas as Equipes
               </Button>
             </div>
@@ -124,15 +133,26 @@ export const Dashboard = () => {
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <Button className="bg-gradient-celestial hover:shadow-divine transition-all">
+            <Button 
+              className="bg-gradient-celestial hover:shadow-divine transition-all"
+              onClick={() => console.log('Cadastrar novo casal')}
+            >
               <Heart className="h-4 w-4 mr-2" />
               Cadastrar Novo Casal
             </Button>
-            <Button variant="outline" className="hover:shadow-gentle transition-all">
+            <Button 
+              variant="outline" 
+              className="hover:shadow-gentle transition-all"
+              onClick={() => console.log('Organizar equipes')}
+            >
               <Users className="h-4 w-4 mr-2" />
               Organizar Equipes
             </Button>
-            <Button variant="outline" className="hover:shadow-gentle transition-all">
+            <Button 
+              variant="outline" 
+              className="hover:shadow-gentle transition-all"
+              onClick={() => console.log('Agendar encontro')}
+            >
               <Calendar className="h-4 w-4 mr-2" />
               Agendar Encontro
             </Button>

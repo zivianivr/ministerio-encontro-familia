@@ -39,11 +39,19 @@ export const Header = () => {
           
           <div className="flex items-center gap-4">
             <nav className="hidden md:flex items-center gap-4">
-              <Button variant="ghost" className="text-white hover:bg-white/20">
+              <Button 
+                variant="ghost" 
+                className="text-white hover:bg-white/20"
+                onClick={() => console.log('Navegando para Casais')}
+              >
                 <Users className="h-4 w-4 mr-2" />
                 Casais
               </Button>
-              <Button variant="ghost" className="text-white hover:bg-white/20">
+              <Button 
+                variant="ghost" 
+                className="text-white hover:bg-white/20"
+                onClick={() => console.log('Navegando para Encontros')}
+              >
                 <Calendar className="h-4 w-4 mr-2" />
                 Encontros
               </Button>
@@ -102,11 +110,19 @@ export const Header = () => {
                   <Button variant="ghost" onClick={() => navigate('/')} className="justify-start">
                     Início
                   </Button>
-                  <Button variant="ghost" className="justify-start">
+                  <Button 
+                    variant="ghost" 
+                    className="justify-start"
+                    onClick={() => console.log('Navegando para Casais')}
+                  >
                     <Users className="h-4 w-4 mr-2" />
                     Casais
                   </Button>
-                  <Button variant="ghost" className="justify-start">
+                  <Button 
+                    variant="ghost" 
+                    className="justify-start"
+                    onClick={() => console.log('Navegando para Encontros')}
+                  >
                     <Calendar className="h-4 w-4 mr-2" />
                     Encontros
                   </Button>

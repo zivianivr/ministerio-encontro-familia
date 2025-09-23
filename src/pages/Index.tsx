@@ -11,8 +11,6 @@ import heroImage from "@/assets/ecc-hero-banner.jpg";
 const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-divine">
-      <Header />
-      
       {/* Hero Section */}
       <section className="relative h-64 overflow-hidden">
         <div 
