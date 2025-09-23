@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { TIPOS_EQUIPES } from "@/types/ecc";
+import { useNavigate } from "react-router-dom";
 
 // Mock data - em produção viria de uma API
 const mockStats = {
@@ -18,6 +19,8 @@ const mockStats = {
 };
 
 export const Dashboard = () => {
+  const navigate = useNavigate();
+  
   return (
     <div className="space-y-6">
       {/* Stats Cards */}
@@ -135,7 +138,7 @@ export const Dashboard = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Button 
               className="bg-gradient-celestial hover:shadow-divine transition-all"
-              onClick={() => console.log('Cadastrar novo casal')}
+              onClick={() => navigate('/casais')}
             >
               <Heart className="h-4 w-4 mr-2" />
               Cadastrar Novo Casal
@@ -143,7 +146,7 @@ export const Dashboard = () => {
             <Button 
               variant="outline" 
               className="hover:shadow-gentle transition-all"
-              onClick={() => console.log('Organizar equipes')}
+              onClick={() => console.log('Organizar equipes - funcionalidade em desenvolvimento')}
             >
               <Users className="h-4 w-4 mr-2" />
               Organizar Equipes
@@ -151,7 +154,7 @@ export const Dashboard = () => {
             <Button 
               variant="outline" 
               className="hover:shadow-gentle transition-all"
-              onClick={() => console.log('Agendar encontro')}
+              onClick={() => navigate('/encontros')}
             >
               <Calendar className="h-4 w-4 mr-2" />
               Agendar Encontro

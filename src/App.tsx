@@ -8,6 +8,8 @@ import { AuthenticatedLayout } from "@/components/layout/AuthenticatedLayout";
 import Index from "./pages/Index";
 import Auth from "./pages/Auth";
 import Configuracoes from "./pages/Configuracoes";
+import Casais from "./pages/Casais";
+import Encontros from "./pages/Encontros";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +28,22 @@ const App = () => (
               element={
                 <AuthenticatedLayout>
                   <Index />
+                </AuthenticatedLayout>
+              } 
+            />
+            <Route 
+              path="/casais" 
+              element={
+                <AuthenticatedLayout>
+                  <Casais />
+                </AuthenticatedLayout>
+              } 
+            />
+            <Route 
+              path="/encontros" 
+              element={
+                <AuthenticatedLayout>
+                  <Encontros />
                 </AuthenticatedLayout>
               } 
             />

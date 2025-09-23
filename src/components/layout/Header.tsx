@@ -42,7 +42,7 @@ export const Header = () => {
               <Button 
                 variant="ghost" 
                 className="text-white hover:bg-white/20"
-                onClick={() => console.log('Navegando para Casais')}
+                onClick={() => navigate('/casais')}
               >
                 <Users className="h-4 w-4 mr-2" />
                 Casais
@@ -50,7 +50,7 @@ export const Header = () => {
               <Button 
                 variant="ghost" 
                 className="text-white hover:bg-white/20"
-                onClick={() => console.log('Navegando para Encontros')}
+                onClick={() => navigate('/encontros')}
               >
                 <Calendar className="h-4 w-4 mr-2" />
                 Encontros
@@ -113,7 +113,7 @@ export const Header = () => {
                   <Button 
                     variant="ghost" 
                     className="justify-start"
-                    onClick={() => console.log('Navegando para Casais')}
+                    onClick={() => navigate('/casais')}
                   >
                     <Users className="h-4 w-4 mr-2" />
                     Casais
@@ -121,7 +121,7 @@ export const Header = () => {
                   <Button 
                     variant="ghost" 
                     className="justify-start"
-                    onClick={() => console.log('Navegando para Encontros')}
+                    onClick={() => navigate('/encontros')}
                   >
                     <Calendar className="h-4 w-4 mr-2" />
                     Encontros
