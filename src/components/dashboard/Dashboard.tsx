@@ -83,7 +83,7 @@ export const Dashboard = () => {
                   <Button 
                     size="sm" 
                     className="bg-gradient-celestial"
-                    onClick={() => console.log('Ver detalhes do próximo encontro')}
+                    onClick={() => navigate('/encontros')}
                   >
                     Ver Detalhes
                   </Button>
@@ -120,7 +120,7 @@ export const Dashboard = () => {
                 variant="ghost" 
                 size="sm" 
                 className="w-full mt-2"
-                onClick={() => console.log('Ver todas as equipes')}
+                onClick={() => navigate('/casais')}
               >
                 Ver Todas as Equipes
               </Button>
@@ -146,7 +146,7 @@ export const Dashboard = () => {
             <Button 
               variant="outline" 
               className="hover:shadow-gentle transition-all"
-              onClick={() => console.log('Organizar equipes - funcionalidade em desenvolvimento')}
+              onClick={() => navigate('/casais')}
             >
               <Users className="h-4 w-4 mr-2" />
               Organizar Equipes

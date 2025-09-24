@@ -1,4 +1,3 @@
-import { Header } from "@/components/layout/Header";
 import { Dashboard } from "@/components/dashboard/Dashboard";
 import { CasalCard } from "@/components/casais/CasalCard";
 import { EquipeCard } from "@/components/equipes/EquipeCard";
@@ -10,7 +9,7 @@ import heroImage from "@/assets/ecc-hero-banner.jpg";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-divine">
+    <div className="space-y-8">{/* O background é aplicado no AuthenticatedLayout */}
       {/* Hero Section */}
       <section className="relative h-64 overflow-hidden">
         <div 
@@ -30,8 +29,7 @@ const Index = () => {
           </div>
         </div>
       </section>
-      
-      <main className="container mx-auto px-6 py-8">
+        
         <div className="mb-8">
           <h2 className="text-3xl font-serif font-bold text-foreground mb-2">
             Painel de Controle
@@ -97,7 +95,6 @@ const Index = () => {
             </CardContent>
           </Card>
         </section>
-      </main>
     </div>
   );
 };
